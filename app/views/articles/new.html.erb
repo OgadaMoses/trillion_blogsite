@@ -1,0 +1,26 @@
+<h1 style="font-size: 2em; color: #3bbfa9; background-color: #f2ebf0;">
+New Article
+</h1>
+<%= form_with model: @article do |form| %>
+    <div style="font-size: 3em; color: #262e5c; background-color: #f2ebf0; padding: 2px;">
+       <%= form.label      :title %><br>
+       <%= form.text_area   :title %>
+       <% @article.errors.full_messages_for(:title).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div style="font-size: 2em; color: #3bbfa9; background-color: #f2ebf0;">
+       <%= form.label       :body %><br>
+       <div style="background-color: #f2ebf0;">
+        <%= form.text_area   :body%>
+        </div>
+        <% @article.errors.full_messages_for(:body).each do |message| %>
+            <div><%= message %></div>
+            <% end %>
+    </div>
+
+     <div>
+        <%= form.submit %>
+     </div>
+     <%end %>
